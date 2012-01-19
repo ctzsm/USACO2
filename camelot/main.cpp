@@ -73,6 +73,12 @@ int do_step(int x,int y,int kflag){
 	}
 	return ret;
 }
+void debug2(int flag){
+	for(int i = 0;i < R; ++i){
+		for(int j = 0;j < C; ++j) printf("%d\t",dist[i][j][flag]);
+		printf("\n");
+	}
+}
 void getDist(){
 	memset(dist,0x3f,sizeof(dist));
 	int bound,ret;
@@ -89,6 +95,7 @@ void getDist(){
 				bound = max(bound,d + ret);
 			}
 		}
+//		debug2(0);printf("\n");debug2(1);printf("\n");
 	}
 }
 void debug(int x[][30]){
@@ -97,12 +104,7 @@ void debug(int x[][30]){
 		printf("\n");
 	}
 }
-void debug2(int flag){
-	for(int i = 0;i < R; ++i){
-		for(int j = 0;j < C; ++j) printf("%d ",dist[i][j][flag]);
-		printf("\n");
-	}
-}
+
 int main(){
 	freopen("camelot.in","r",stdin);
 	freopen("camelot.out","w",stdout);
